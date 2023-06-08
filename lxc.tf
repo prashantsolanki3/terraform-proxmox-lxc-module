@@ -1,3 +1,5 @@
+
+
 resource "proxmox_lxc" "container" {
 
   target_node  = var.target_node
@@ -45,7 +47,7 @@ resource "proxmox_lxc" "container" {
     name   = "eth0"
     bridge = "vmbr0"
     ip     = "${var.ipv4}/24"
-    gw     = "${var.ipv4_gateway}"
+    gw     = var.ipv4_gateway
   }
 
   network {

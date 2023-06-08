@@ -1,9 +1,3 @@
-variable "env" {
-  description = "Environment - dev, live. Default is dev"
-  default     = "dev"
-  type        = string
-}
-
 variable "unprivileged" {
   type      = bool
   default   = false
@@ -14,8 +8,6 @@ variable "description" {
   default     = "Terraform Proxmox LXC Container"
 }
 
-
-
 variable "target_node" {
   description = "TARGET_NODE"
   type        = string
@@ -25,12 +17,6 @@ variable "public_key_file" {
   description = "public_key"
   type        = string
   default     = "~/.ssh/id_rsa.pub"
-}
-
-variable "private_key_file" {
-  description = "private_key_file"
-  type        = string
-  default     = "~/.ssh/id_rsa"
 }
 
 variable "template" {
