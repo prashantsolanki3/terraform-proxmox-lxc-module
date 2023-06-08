@@ -4,6 +4,18 @@ variable "env" {
   type        = string
 }
 
+variable "unprivileged" {
+  type      = bool
+  default   = false
+}
+
+variable "description" {
+  type        = string
+  default     = "Terraform Proxmox LXC Container"
+}
+
+
+
 variable "target_node" {
   description = "TARGET_NODE"
   type        = string
@@ -24,17 +36,11 @@ variable "private_key_file" {
 variable "template" {
   description = "Template Name"
   type        = string
-  default     = "focal-server-cloudimg-amd64"
+  default     = "local:vztmpl/ubuntu-20.04-standard_20.04-1_amd64.tar.gz"
 }
 
-variable "vm_id" {
-  description = "Proxmox vm id"
-  type        = string
-  default     = "12345"
-}
-
-variable "user" {
-  description = "Username"
+variable "ostype" {
+  description = "OS Type"
   type        = string
   default     = "ubuntu"
 }
@@ -54,7 +60,7 @@ variable "memory" {
 variable "hostname" {
   description = "Hostname"
   type        = string
-  default     = "vm-module"
+  default     = "lxc-template"
 }
 
 variable "ipv4_gateway" {
@@ -84,74 +90,4 @@ variable "disk_storage" {
   description = "storage location"
   type        = string
   default     = "local-lvm"
-}
-
-variable "dots_ansible_repo" {
-  description = "Point to you ansible based dot repo"
-  type = string
-  default = "https://github.com/prashantsolanki3/dots.git"
-}
-
-variable "module_name" {
-  description = "Module Name"
-  type = string
-  default = "vm-module"
-}
-
-# variable "glusterfs_server" {
-#   description = "Glusterfs server"
-#   type        = string
-#   default     = ""
-# }
-
-# variable "glusterfs_mounts" {
-#   description = "GlusterFS mounts"
-#   type        = list(string)
-#   default     = []
-# }
-
-# variable "glusterfs_home_mounts"{
-#   description = "GlusterFS home mounts"
-#   type        = list(string)
-#   default     = []
-# }
-
-variable "config_path" {
-  description = "Path to store the config files"
-  type = string
-  default = "/vm-config"
-}
-
-variable "cifs_credentials_file" {
-  default = ""
-  type = string
-  description = "Path to the cifs credentials file"
-}
-
-
-variable "config_files" {
-  description = "List of config files for the target VM"
-  type = list(object({
-    source_path      = string
-    destination_path = string
-  }))
-  default = []
-}
-
-variable "github_account" {
-  description = "Github account"
-  type = string
-  default = "prashantsolanki3"
-}
-
-variable "github_repos" {
-  description = "Github runner repos"
-  type = list(string)
-  default = []
-}
-
-variable "github_access_token" {
-  description = "Github access token"
-  type = string
-  default = ""
 }
