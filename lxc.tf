@@ -39,7 +39,7 @@ resource "proxmox_lxc" "container" {
     // "/srv/host/bind-mount-point:256".
     // This behaviour looks to be caused by a bug in the provider.
     volume  = "/slow-pool/home/${var.hostname}"
-    mp      = "/home"
+    mp      = "/root"
     size    = "16G"
   }
 
