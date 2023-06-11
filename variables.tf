@@ -1,11 +1,11 @@
 variable "unprivileged" {
-  type      = bool
-  default   = false
+  type    = bool
+  default = false
 }
 
 variable "description" {
-  type        = string
-  default     = "Terraform Proxmox LXC Container"
+  type    = string
+  default = "Terraform Proxmox LXC Container"
 }
 
 variable "target_node" {
